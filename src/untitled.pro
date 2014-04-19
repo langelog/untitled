@@ -25,6 +25,7 @@ SOURCES += main.cpp\
     Clases/CaptureThread.cpp
 
 HEADERS  += mainwindow.h \
-    Clases/CaptureThread.h
+    Clases/CaptureThread.h \
+    constants.h
 
 FORMS    += mainwindow.ui

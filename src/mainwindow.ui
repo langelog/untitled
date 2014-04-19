@@ -63,20 +63,26 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpen"/>
+    <addaction name="actionOpen_Cam"/>
+    <addaction name="actionClose_Cam"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
-  <action name="actionOpen">
+  <action name="actionOpen_Cam">
    <property name="text">
-    <string>Open</string>
+    <string>Open Camera</string>
    </property>
   </action>
   <action name="actionClose">
    <property name="text">
     <string>Close</string>
+   </property>
+  </action>
+  <action name="actionClose_Cam">
+   <property name="text">
+    <string>Close Camera</string>
    </property>
   </action>
  </widget>
