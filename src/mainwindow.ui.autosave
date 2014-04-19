@@ -71,7 +71,7 @@
   </widget>
   <action name="actionOpen">
    <property name="text">
-    <string>Open</string>
+    <string>Open Camera</string>
    </property>
   </action>
   <action name="actionClose">

@@ -29,6 +29,7 @@ public:
     QAction *actionClose;
     QWidget *centralWidget;
     QLabel *label_main;
+    QLabel *label_info;
     QMenuBar *menuBar;
     QMenu *menuFile;
 
@@ -48,6 +49,10 @@ public:
         label_main->setGeometry(QRect(10, 10, 640, 480));
         label_main->setFrameShape(QFrame::Box);
         label_main->setAlignment(Qt::AlignCenter);
+        label_info = new QLabel(centralWidget);
+        label_info->setObjectName(QStringLiteral("label_info"));
+        label_info->setGeometry(QRect(660, 10, 191, 16));
+        label_info->setFrameShape(QFrame::Box);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -72,6 +77,7 @@ public:
         actionOpen->setText(QApplication::translate("MainWindow", "Open", 0));
         actionClose->setText(QApplication::translate("MainWindow", "Close", 0));
         label_main->setText(QApplication::translate("MainWindow", "MAIN SCREEN", 0));
+        label_info->setText(QApplication::translate("MainWindow", "Information box", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
     } // retranslateUi
 
