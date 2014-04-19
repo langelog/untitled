@@ -27,7 +27,7 @@
      <enum>QFrame::Box</enum>
     </property>
     <property name="text">
-     <string>MAIN SCREEN</string>
+     <string>[MAIN SCREEN]</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
