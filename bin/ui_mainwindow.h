@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -27,6 +28,7 @@ public:
     QAction *actionOpen;
     QAction *actionClose;
     QWidget *centralWidget;
+    QLabel *label_main;
     QMenuBar *menuBar;
     QMenu *menuFile;
 
@@ -34,17 +36,22 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->resize(860, 522);
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         actionClose = new QAction(MainWindow);
         actionClose->setObjectName(QStringLiteral("actionClose"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        label_main = new QLabel(centralWidget);
+        label_main->setObjectName(QStringLiteral("label_main"));
+        label_main->setGeometry(QRect(10, 10, 640, 480));
+        label_main->setFrameShape(QFrame::Box);
+        label_main->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 21));
+        menuBar->setGeometry(QRect(0, 0, 860, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         MainWindow->setMenuBar(menuBar);
@@ -64,6 +71,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         actionOpen->setText(QApplication::translate("MainWindow", "Open", 0));
         actionClose->setText(QApplication::translate("MainWindow", "Close", 0));
+        label_main->setText(QApplication::translate("MainWindow", "MAIN SCREEN", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
     } // retranslateUi
 
