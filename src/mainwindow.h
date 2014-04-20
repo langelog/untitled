@@ -5,6 +5,7 @@
 #include <QString>
 
 #include "constants.h"
+#include "Clases/Buffer.h"
 #include "Clases/CaptureThread.h"
 
 namespace Ui {
@@ -22,6 +23,7 @@ public:
 private:
     Ui::MainWindow *ui;
     CaptureThread  *captureThread;
+    Buffer         *buffer;
 
 public slots:
     void on_actionClose_triggered();
@@ -29,6 +31,7 @@ public slots:
     void on_actionClose_Cam_triggered();
 
     void update_text(QString);
+    void update_buffer_usage(int);
 };
 
 #endif // MAINWINDOW_H

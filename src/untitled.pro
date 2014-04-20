@@ -22,10 +22,14 @@ LIBS += -LC:\\OpenCV-2.8.4\\install\\x64\\mingw\\lib \
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    Clases/CaptureThread.cpp
+    Clases/CaptureThread.cpp \
+    Clases/Buffer.cpp \
+    Clases/ProcessingThread.cpp
 
 HEADERS  += mainwindow.h \
     Clases/CaptureThread.h \
-    constants.h
+    constants.h \
+    Clases/Buffer.h \
+    Clases/ProcessingThread.h
 
 FORMS    += mainwindow.ui
