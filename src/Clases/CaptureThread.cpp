@@ -3,6 +3,7 @@
 CaptureThread::CaptureThread(QObject *parent) : QThread(parent) {
     running_flag  = false;
     current_frame = NULL;
+    buffer_cap    = NULL;
     device_id     = 0;
 }
 
@@ -23,15 +24,16 @@ void CaptureThread::run()
 
     Mat img;
 
+    emit new_info("CaptureThread has started.");
+
     while(running_flag && camera.isOpened()) {
         camera >> img;
 
         buffer_cap->push(img);
 
-        emit new_text("CaptureThread Running");
         emit inform_usage(buffer_cap->usage());
-        msleep(100);
+        //msleep(100);
     }
 
-    emit new_text("CaptureThread stopped");
+    emit new_info("CaptureThread has stopped.");
 }

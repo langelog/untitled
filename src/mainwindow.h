@@ -3,10 +3,12 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QImage>
 
 #include "constants.h"
 #include "Clases/Buffer.h"
 #include "Clases/CaptureThread.h"
+#include "Clases/ProcessingThread.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,17 +23,19 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
-    CaptureThread  *captureThread;
-    Buffer         *buffer;
+    Ui::MainWindow   *ui;
+    CaptureThread    *captureThread;
+    ProcessingThread *processingThread;
+    Buffer           *buffer;
 
 public slots:
     void on_actionClose_triggered();
     void on_actionOpen_Cam_triggered();
     void on_actionClose_Cam_triggered();
 
-    void update_text(QString);
+    void update_info(QString);
     void update_buffer_usage(int);
+    void update_frame(const QImage &frame);
 };
 
 #endif // MAINWINDOW_H

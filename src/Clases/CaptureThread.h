@@ -5,6 +5,7 @@
 #include <QString>
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
+
 #include "Clases/Buffer.h"
 
 #include <iostream>
@@ -17,11 +18,11 @@ class CaptureThread : public QThread
     Q_OBJECT
 public:
     explicit CaptureThread(QObject *parent = 0);
-    void stop();
-    void config_local(int device, Buffer *buf);
+    void     stop();
+    void     config_local(int device, Buffer *buf);
 
 signals:
-    void new_text(QString);
+    void new_info(QString);
     void inform_usage(int);
 
 public slots:
