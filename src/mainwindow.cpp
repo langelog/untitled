@@ -7,11 +7,41 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     captureThread    = NULL;
     buffer           = NULL;
     processingThread = NULL;
+    jpg_id           = 0;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+QString MainWindow::genJpgName()
+{
+    QString name;
+    name.sprintf("\\%09d.jpg",jpg_id);
+    return name;
+}
+
+void MainWindow::update_jpg_id(QString path) {
+    FILE   *p;
+    int     id = 0;
+
+    p = fopen((path+"\\index.txt").toUtf8(), "a+");
+    rewind(p);
+    fscanf(p, "%d", &id);
+    if(feof(p)) {
+        id = 0;
+        fprintf(p, "%d ", id);
+    }
+    fclose(p);
+    // si id==0, es la primera foto:
+    jpg_id = id;
+
+    // guardamos la proxima id:
+    p = fopen((path+"\\index.txt").toUtf8(), "w");
+    id++;
+    fprintf(p, "%d ", id);
+    fclose(p);
 }
 
 void MainWindow::on_actionClose_triggered()
@@ -26,15 +56,15 @@ void MainWindow::on_actionClose_Cam_triggered()
         processingThread->stop();
         captureThread->stop();
 
+        // terminate them:
+        processingThread->terminate();
+        captureThread->terminate();
+
         // distroy connected signal/slots:
         disconnect(captureThread,SIGNAL(new_info(QString)));
         disconnect(captureThread,SIGNAL(inform_usage(int)));
         disconnect(processingThread,SIGNAL(new_info(QString)));
         disconnect(processingThread,SIGNAL(new_frame(QImage)));
-
-        // terminate them:
-        processingThread->terminate();
-        captureThread->terminate();
 
         // destroy them:
         processingThread->deleteLater();
@@ -80,4 +110,28 @@ void MainWindow::on_actionOpen_Cam_triggered()
         // the objects.
         captureThread->start();
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString path = ui->line_pathPhotos->text();
+
+    if(processingThread!=NULL)
+        if(processingThread->isRunning() && (QDir(path).exists())) {
+
+            //
+            //cout << (path+genJpgName()).toStdString() << endl;
+            update_jpg_id(path);
+            processingThread->savePhoto(ui->line_pathPhotos->text()+genJpgName());
+        }
+}
+
+void MainWindow::on_line_pathPhotos_textChanged(const QString &arg1)
+{
+    QPalette *palette = new QPalette();
+    if(QDir(arg1).exists())
+        palette->setColor(QPalette::Text,Qt::green);
+    else
+        palette->setColor(QPalette::Text,Qt::red);
+    ui->line_pathPhotos->setPalette(*palette);
 }

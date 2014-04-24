@@ -90,7 +90,7 @@
       <x>660</x>
       <y>80</y>
       <width>231</width>
-      <height>351</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -124,6 +124,45 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>400</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Photo's Folder:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="line_pathPhotos">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>420</y>
+      <width>231</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>C:\Users\Kra\Desktop\photos</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>450</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Shot</string>
     </property>
    </widget>
   </widget>

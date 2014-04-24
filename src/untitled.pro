@@ -24,12 +24,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     Clases/CaptureThread.cpp \
     Clases/Buffer.cpp \
-    Clases/ProcessingThread.cpp
+    Clases/ProcessingThread.cpp \
+    Clases/ImgProcessor.cpp
 
 HEADERS  += mainwindow.h \
     Clases/CaptureThread.h \
     constants.h \
     Clases/Buffer.h \
-    Clases/ProcessingThread.h
+    Clases/ProcessingThread.h \
+    Clases/ImgProcessor.h
 
 FORMS    += mainwindow.ui
