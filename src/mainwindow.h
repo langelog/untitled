@@ -7,10 +7,12 @@
 #include <QDir>
 #include <iostream>
 
+#include "Tools.h"
 #include "constants.h"
 #include "Clases/Buffer.h"
 #include "Clases/CaptureThread.h"
 #include "Clases/ProcessingThread.h"
+#include "LocatorDialog.h"
 
 using namespace std;
 
@@ -31,14 +33,16 @@ private:
     CaptureThread    *captureThread;
     ProcessingThread *processingThread;
     Buffer           *buffer;
-    QString           genJpgName();
     int               jpg_id;
     void              update_jpg_id(QString path);
+    LocatorDialog    *locatorDialog;
+    Img_List          img_info_list;
 
 public slots:
     void on_actionClose_triggered();
     void on_actionOpen_Cam_triggered();
     void on_actionClose_Cam_triggered();
+    void on_actionObject_Locator_triggered();
 
     void update_info(QString);
     void update_buffer_usage(int);

@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\CaptureThread.o
+./release\Buffer.o
+./release\ProcessingThread.o
+./release\ImgProcessor.o
+./release\LocatorDialog.o
+./release\Tools.o
+./release\FrameLabel.o
+./release\moc_mainwindow.o
+./release\moc_CaptureThread.o
+./release\moc_ProcessingThread.o
+./release\moc_LocatorDialog.o
+./release\moc_FrameLabel.o
+);

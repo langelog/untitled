@@ -1,6 +1,7 @@
 #ifndef CAPTURETHREAD_H
 #define CAPTURETHREAD_H
 
+#include <iostream>
 #include <QThread>
 #include <QString>
 #include <opencv/cv.h>

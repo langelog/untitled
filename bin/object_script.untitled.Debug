@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\CaptureThread.o
+./debug\Buffer.o
+./debug\ProcessingThread.o
+./debug\ImgProcessor.o
+./debug\LocatorDialog.o
+./debug\Tools.o
+./debug\FrameLabel.o
+./debug\moc_mainwindow.o
+./debug\moc_CaptureThread.o
+./debug\moc_ProcessingThread.o
+./debug\moc_LocatorDialog.o
+./debug\moc_FrameLabel.o
+);

@@ -9,6 +9,7 @@
 
 #include "Clases/Buffer.h"
 #include "ImgProcessor.h"
+#include "Tools.h"
 
 using namespace cv;
 
@@ -30,7 +31,6 @@ private:
     bool         running_flag;
     Buffer      *buffer_cap;
 
-    QImage       Mat2QImage(Mat &img);
     Mat          current;
 };
 

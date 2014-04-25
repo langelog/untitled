@@ -4,22 +4,17 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    captureThread    = NULL;
-    buffer           = NULL;
-    processingThread = NULL;
-    jpg_id           = 0;
+    captureThread     = NULL;
+    buffer            = NULL;
+    processingThread  = NULL;
+    jpg_id            = 0;
+    locatorDialog     = NULL;
+    img_info_list.img = new Img_Info*[MAX_IMG_INFO];
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-QString MainWindow::genJpgName()
-{
-    QString name;
-    name.sprintf("\\%09d.jpg",jpg_id);
-    return name;
 }
 
 void MainWindow::update_jpg_id(QString path) {
@@ -72,6 +67,14 @@ void MainWindow::on_actionClose_Cam_triggered()
     }
 }
 
+void MainWindow::on_actionObject_Locator_triggered()
+{
+    if(locatorDialog==NULL) {
+        locatorDialog = new LocatorDialog();
+    }
+    locatorDialog->show();
+}
+
 void MainWindow::update_info(QString text)
 {
     ui->plainTextEdit->insertPlainText("* "+text+"\n");
@@ -118,11 +121,21 @@ void MainWindow::on_pushButton_clicked()
 
     if(processingThread!=NULL)
         if(processingThread->isRunning() && (QDir(path).exists())) {
+            if(!load_img_list(path, &img_info_list))
+                create_img_list(path);
+            cout << img_info_list.size << endl;
+            // save new image.
+            processingThread->savePhoto(ui->line_pathPhotos->text()+"\\"+genJpgName(img_info_list.size, ui->line_format->text()));
+            // create new index.
+            img_info_list.append_new_photo(ui->line_format->text());
+            // save new index.
+            save_img_list(path, &img_info_list);
+
 
             //
             //cout << (path+genJpgName()).toStdString() << endl;
-            update_jpg_id(path);
-            processingThread->savePhoto(ui->line_pathPhotos->text()+genJpgName());
+            //update_jpg_id(path);
+            //processingThread->savePhoto(ui->line_pathPhotos->text()+genJpgName());
         }
 }
 

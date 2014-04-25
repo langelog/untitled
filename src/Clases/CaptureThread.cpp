@@ -14,7 +14,8 @@ void CaptureThread::stop() {
 void CaptureThread::config_local(int device, Buffer *buf)
 {
     device_id = device;
-    camera.open(device_id);
+    if(!camera.open(device_id))
+        cout << "Error openning the camera" << endl;
     buffer_cap = buf;
 }
 

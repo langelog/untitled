@@ -165,6 +165,43 @@
      <string>Shot</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="line_format">
+    <property name="geometry">
+     <rect>
+      <x>852</x>
+      <y>440</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>jpg</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>811</x>
+      <y>443</y>
+      <width>51</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Format:</string>
+    </property>
+   </widget>
+   <zorder>label_main</zorder>
+   <zorder>label</zorder>
+   <zorder>bufferUsage</zorder>
+   <zorder>label_2</zorder>
+   <zorder>plainTextEdit</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>line_pathPhotos</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>label_5</zorder>
+   <zorder>line_format</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -184,7 +221,14 @@
     <addaction name="separator"/>
     <addaction name="actionClose"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionObject_Locator"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
   </widget>
   <action name="actionOpen_Cam">
    <property name="text">
@@ -199,6 +243,11 @@
   <action name="actionClose_Cam">
    <property name="text">
     <string>Close Camera</string>
+   </property>
+  </action>
+  <action name="actionObject_Locator">
+   <property name="text">
+    <string>Object Locator</string>
    </property>
   </action>
  </widget>

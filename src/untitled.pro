@@ -25,13 +25,20 @@ SOURCES += main.cpp\
     Clases/CaptureThread.cpp \
     Clases/Buffer.cpp \
     Clases/ProcessingThread.cpp \
-    Clases/ImgProcessor.cpp
+    Clases/ImgProcessor.cpp \
+    LocatorDialog.cpp \
+    Tools.cpp \
+    Clases/FrameLabel.cpp
 
 HEADERS  += mainwindow.h \
     Clases/CaptureThread.h \
     constants.h \
     Clases/Buffer.h \
     Clases/ProcessingThread.h \
-    Clases/ImgProcessor.h
+    Clases/ImgProcessor.h \
+    LocatorDialog.h \
+    Tools.h \
+    Clases/FrameLabel.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    LocatorDialog.ui
