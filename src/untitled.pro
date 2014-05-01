@@ -12,11 +12,13 @@ TARGET = untitled
 TEMPLATE = app
 
 # -- INCLUDE FOR OPENCV --
-# folder version name error... but what ever...
-INCLUDEPATH += C:\\OpenCV-2.8.4\\install\\include
-LIBS += -LC:\\OpenCV-2.8.4\\install\\x64\\mingw\\lib \
-    -lopencv_core248.dll \
-    -lopencv_highgui248.dll
+INCLUDEPATH += C:\\OpenCV2.4.9\\install\\include
+LIBS += -LC:\\OpenCV2.4.9\\install\\x64\\mingw\\lib \
+    -lopencv_core249.dll \
+    -lopencv_highgui249.dll \
+    -lopencv_imgproc249.dll \
+    -lopencv_features2d249.dll \
+    -lopencv_calib3d249.dll
 
 #--------------------------
 

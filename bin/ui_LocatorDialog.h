@@ -125,7 +125,7 @@ public:
     {
         LocatorDialog->setWindowTitle(QApplication::translate("LocatorDialog", "Dialog", 0));
         label->setText(QApplication::translate("LocatorDialog", "Imgs path:", 0));
-        line_path->setText(QApplication::translate("LocatorDialog", "C:\\Users\\Kra\\Desktop\\photos", 0));
+        line_path->setText(QApplication::translate("LocatorDialog", "./photos", 0));
         pushButton->setText(QApplication::translate("LocatorDialog", "Open", 0));
         pushButton_2->setText(QApplication::translate("LocatorDialog", "prev", 0));
         pushButton_3->setText(QApplication::translate("LocatorDialog", "next", 0));

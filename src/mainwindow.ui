@@ -149,7 +149,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>C:\Users\Kra\Desktop\photos</string>
+     <string>./photos</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
