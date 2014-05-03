@@ -83,7 +83,7 @@ bool load_img_list(QString path, Img_List *list)
     FILE *p = NULL;
     int top=0;
 
-    p = fopen((path+"\\"+FILE_INDEX).toUtf8(), "r");
+    p = fopen((path+DS+FILE_INDEX).toUtf8(), "r");
 
     if(p == NULL)
         return false;
@@ -127,7 +127,7 @@ bool load_img_list(QString path, Img_List *list)
 bool save_img_list(QString path, Img_List *list) {
     FILE *p = NULL;
 
-    p = fopen((path+"\\"+FILE_INDEX).toUtf8(), "w");
+    p = fopen((path+DS+FILE_INDEX).toUtf8(), "w");
 
     if(p == NULL)
         return false;
@@ -154,7 +154,7 @@ bool create_img_list(QString path)
 {
     FILE *p = NULL;
 
-    p = fopen((path+"\\"+FILE_INDEX).toUtf8(), "w");
+    p = fopen((path+DS+FILE_INDEX).toUtf8(), "w");
 
     if(p == NULL)
         return false;

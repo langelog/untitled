@@ -107,7 +107,7 @@ void LocatorDialog::update_screen()
         return;
     }
 
-    load_image(dir+"\\"+img_info_list.img[current_id]->name);
+    load_image(dir+DS+img_info_list.img[current_id]->name);
     show_image();
     update_place(current_id);
 }

@@ -21,7 +21,7 @@ void MainWindow::update_jpg_id(QString path) {
     FILE   *p;
     int     id = 0;
 
-    p = fopen((path+"\\index.txt").toUtf8(), "a+");
+    p = fopen((path+DS+FILE_INDEX).toUtf8(), "a+");
     rewind(p);
     fscanf(p, "%d", &id);
     if(feof(p)) {
@@ -33,7 +33,7 @@ void MainWindow::update_jpg_id(QString path) {
     jpg_id = id;
 
     // guardamos la proxima id:
-    p = fopen((path+"\\index.txt").toUtf8(), "w");
+    p = fopen((path+DS+FILE_INDEX).toUtf8(), "w");
     id++;
     fprintf(p, "%d ", id);
     fclose(p);
@@ -125,7 +125,7 @@ void MainWindow::on_pushButton_clicked()
                 create_img_list(path);
             cout << img_info_list.size << endl;
             // save new image.
-            processingThread->savePhoto(ui->line_pathPhotos->text()+"\\"+genJpgName(img_info_list.size, ui->line_format->text()));
+            processingThread->savePhoto(ui->line_pathPhotos->text()+DS+genJpgName(img_info_list.size, ui->line_format->text()));
             // create new index.
             img_info_list.append_new_photo(ui->line_format->text());
             // save new index.
